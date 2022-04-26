@@ -100,17 +100,19 @@ def callback_inline(call):
         if call.data == "tur0":
             af.add(types.InlineKeyboardButton(text="Visit Karakol", callback_data="culturetourvisit"))
             af.add(types.InlineKeyboardButton(text="ECOTREK", callback_data="culturetoureco"))
-            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>Культурные</b> туры:", parse_mode='html', reply_markup=af)
             kb.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
+            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>Культурные</b> туры:", parse_mode='html', reply_markup=af)
 
         if call.data == 'culturetourvisit':
             aff.add(types.InlineKeyboardButton(text="Сайт", url="https://visitkarakol.com/nomads_way"))
+            kb.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
             photo = open('static/cultureTour.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
             bot.send_message(call.message.chat.id, "Этот тур создан для людей, которые заинтересованы в знакомстве с основными достопримечательностями, культурой и любят делать удивительные фотографии живописных пейзажей без больших физических нагрузок. Подробности про тур вы можете узнать на сайте",  reply_markup=aff)
 
         if call.data == 'culturetoureco':
             aff.add(types.InlineKeyboardButton(text="Сайт", url="https://visitkarakol.com/nomads_way"))
+            kb.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
             photo = open('static/ecotrekTour1.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
             bot.send_message(call.message.chat.id, "В этом туре вы познакомитесь с культурой, традициями и бытом кочевников, бытом и развлечениями крупных городов, а также посетите живописные природные места, которыми славится Кыргызстан. Верховая езда, покорение горных вершин, пикники и охота, а также пляжный отдых на берегу озера Иссык-Куль – все это входит в программы кыргызского культурного тура. Подробности про тур вы можете узнать на сайте", reply_markup=aff)
@@ -122,6 +124,7 @@ def callback_inline(call):
         aee = types.InlineKeyboardMarkup()  
         if call.data == "tur1":
             ab.add(types.InlineKeyboardButton(text="Bulak Say", callback_data="trekkingtour"))
+            kb.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
             bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>горные</b> туры:", parse_mode='html', reply_markup=ae)
 
         if call.data == 'trekkingtour':
@@ -137,7 +140,7 @@ def callback_inline(call):
         ad = types.InlineKeyboardMarkup()  
         add = types.InlineKeyboardMarkup()  
         if call.data == "tur2":
-            ab.add(types.InlineKeyboardButton(text="Visit Karakol", callback_data="horsbacktour"))
+            ad.add(types.InlineKeyboardButton(text="Visit Karakol", callback_data="horsbacktour"))
             bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>авто</b> туры:", parse_mode='html', reply_markup=ad)
 
         if call.data == 'horsbacktour':
