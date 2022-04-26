@@ -137,19 +137,19 @@ def callback_inline(call):
             kb.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
 
 
-        #АВТО ТУР
+        #Конные туры
         ad = types.InlineKeyboardMarkup()  
         add = types.InlineKeyboardMarkup()  
         if call.data == "tur2":
-            ad.add(types.InlineKeyboardButton(text="Visit Karakol", callback_data="horsbacktour"))
+            ad.add(types.InlineKeyboardButton(text="Bulak Say", callback_data="horsbacktour"))
             ad.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
-            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>авто</b> туры:", parse_mode='html', reply_markup=ad)
+            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают туры<b>верховых езд:</b> ", parse_mode='html', reply_markup=ad)
 
         if call.data == 'horsbacktour':
             add.add(types.InlineKeyboardButton(text="Сайт", url="https://visitkarakol.com/"))
-            photo = open('static/avtoTour.jpg', 'rb')
+            photo = open('static/horsebackTour.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
-            bot.send_message(call.message.chat.id, "Мы рассказываем о Караколе, Кыргызстане все, что вы хотите знать! Взгляните на страну глазами туристов и самих жителей! Это идеальное место для внедорожных туров с посещением живописных ущелий и каньонов, долин и рек, гор и озер! Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=add)
+            bot.send_message(call.message.chat.id, "Bulak Say Horseback and Trekking — это семейный туроператор, базирующийся в селе Жолголот, недалеко от города горных походов Каракол. Наша конная база расположена у подножия пастбища между Караколом и хребтом Терскей Ала-Тоо в 10 минутах езды на такси от центра города. Мы предлагаем конные и пешие туры от 1 до 10 дней по красивым долинам и перевалам Тянь-Шаня и ночевки в юртах с традиционной кыргызской едой и свежими молочными продуктами с нашей фермы. Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=add)
 
             add.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
 
@@ -160,30 +160,30 @@ def callback_inline(call):
         if call.data == "tur3":
             aj.add(types.InlineKeyboardButton(text="VISIT KARAKOL ", callback_data="skitour"))
             aj.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
-            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>Лыжные</b> туры:", parse_mode='html', reply_markup=ae)
+            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>Лыжные</b> туры:", parse_mode='html', reply_markup=aj)
 
         if call.data == 'skitour':
             ajj.add(types.InlineKeyboardButton(text="Сайт", url="https://visitkarakol.com/freeride_and_ski_tours_in_kyrgyzstan"))
             photo = open('static/skytour.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
-            bot.send_message(call.message.chat.id, "Здесь у вас будет возможность отлично провести время, занимаясь фрирайдом и скитуром по Кыргызстану. Наши снежные горы относятся к горам Тянь-Шаня, географически обособленной стране с хорошо сохранившейся кочевой культурой. Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=aee)
+            bot.send_message(call.message.chat.id, "Здесь у вас будет возможность отлично провести время, занимаясь фрирайдом и скитуром по Кыргызстану. Наши снежные горы относятся к горам Тянь-Шаня, географически обособленной стране с хорошо сохранившейся кочевой культурой. Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=ajj)
 
             ajj.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
 
 
-        #Конные туры
+        #АВТО ТУР
         ac = types.InlineKeyboardMarkup()  
         acc = types.InlineKeyboardMarkup()  
         if call.data == "tur4":
-            ac.add(types.InlineKeyboardButton(text="Bulak Say", callback_data="horsbacktour"))
+            ac.add(types.InlineKeyboardButton(text="VISIT KARAKOL", callback_data="avtotur"))
             ac.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
-            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают тууры <b>верховых езд:</b>", parse_mode='html', reply_markup=ac)
+            bot.send_message(call.message.chat.id, "Тур.компании, которые предлогают <b>авто</b> туры:", parse_mode='html', reply_markup=ac)
 
-        if call.data == 'horsbacktour':
+        if call.data == 'avtotur':
             acc.add(types.InlineKeyboardButton(text="Сайт", url="http://karakoltour.kg/index.php/ru/kayaking"))
-            photo = open('static/horsebackTour.jpg', 'rb')
+            photo = open('static/avtoTour.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
-            bot.send_message(call.message.chat.id, "Bulak Say Horseback and Trekking — это семейный туроператор, базирующийся в селе Жолголот, недалеко от города горных походов Каракол. Наша конная база расположена у подножия пастбища между Караколом и хребтом Терскей Ала-Тоо в 10 минутах езды на такси от центра города. Мы предлагаем конные и пешие туры от 1 до 10 дней по красивым долинам и перевалам Тянь-Шаня и ночевки в юртах с традиционной кыргызской едой и свежими молочными продуктами с нашей фермы. Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=acc)
+            bot.send_message(call.message.chat.id, "Мы рассказываем о Караколе, Кыргызстане все, что вы хотите знать! Взгляните на страну глазами туристов и самих жителей! Это идеальное место для внедорожных туров с посещением живописных ущелий и каньонов, долин и рек, гор и озер! Подробности про тур вы можете узнать на сайте", parse_mode='html', reply_markup=acc)
 
             acc.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
 
@@ -209,9 +209,9 @@ def callback_inline(call):
         #ВЕЛОТУР 
         ah = types.InlineKeyboardMarkup() 
         if call.data == "tur7":
-            bot.send_message(call.message.chat.id, "Пока что в разделе 'Велотур' отсуствует туры")
-
             ah.add(types.InlineKeyboardButton(text="Назад в меню⏪", callback_data="mainmenu"))
+            bot.send_message(call.message.chat.id, "Пока что в разделе 'Велотур' отсуствует туры", reply_markup=ah)
+
 
 
 # Под программа ДОСТОПРИМЕЧАТЕЛЬНОСТЕЙ
@@ -263,9 +263,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://goo.gl/maps/REUP3jyqLVLpy22K8"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://karagat-hotel-karakol.nochi.com/")
             )
-            ll.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
-            )
             photo = open('static/karagat-hotel.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
 
@@ -277,9 +274,6 @@ def callback_inline(call):
             ll.add(
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://goo.gl/maps/aYhP5k9dQhwCK3cQA"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://www.booking.com/hotel/kg/dd1-4d-n.ru.html?aid=318615&label=Russian_Kyrgyzstan_RU_KG_29377901185-_LNFadyyFJxSoSSqNZCUlQS111450060385%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi10638584468%3Atiaud-294889297133%3Adsa-320367708406%3Alp9070442%3Ali%3Adec%3Adm&sid=f173aeeb6b0ef9b7a21bba06597de56d&dest_id=-2331996;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1650787367;srpvid=ad5a3893cdd500f9;type=total;ucfs=1&#hotelTmpl")
-            )
-            ll.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
             )
 
             photo = open('static/amir-hotel.jpg', 'rb')
@@ -307,9 +301,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://g.page/hotel-altai-kg?share"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://www.booking.com/hotel/kg/guest-house-altay.ru.html?aid=315714&label=guest-house-altay-PntHSJ7WT4xWLwJVVPgLeQS442453470933%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-180775626966%3Alp9070442%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YQB9rNbOPxnnhY6p2cOLx0E&sid=f173aeeb6b0ef9b7a21bba06597de56d&dest_id=-2331996;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1650787955;srpvid=6f7c39b8c6500068;type=total;ucfs=1&#hotelTmpl")
             )
-            nn.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
-            )
             photo = open('static/altay-guesthouse.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
 
@@ -320,9 +311,6 @@ def callback_inline(call):
             oo.add(
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://goo.gl/maps/aYhP5k9dQhwCK3cQA"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://www.booking.com/hotel/kg/tikhii-ugholok.ru.html?aid=1149971&label=karakol-PPCTJg56Fs1W3eKyi%2A9UIgS390176536984%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-1110454565747%3Akwd-66950393424%3Alp9070442%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YXL5GV3cgz10S2LDvGAHUOI&sid=f173aeeb6b0ef9b7a21bba06597de56d")
-            )
-            oo.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
             )
             photo = open('static/gueshouseeles.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
@@ -349,9 +337,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://g.page/duethostel?share"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://www.russian.hostelworld.com/hosteldetails.php/Snow-Leopard-Hostel/Karakol/299894")
             )
-            pp.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
-            )
             photo = open('static/showleopardHostel.webp', 'rb')
             bot.send_photo(call.message.chat.id, photo)
 
@@ -362,9 +347,6 @@ def callback_inline(call):
             qq.add(
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://g.page/duethostel?share"),
                 types.InlineKeyboardButton(text="Бронирование", url="https://www.russian.hostelworld.com/hosteldetails.php/Duet-Hostel/Karakol/272558")
-            )
-            qq.add(
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
             )
 
             photo = open('static/duetHostel.webp', 'rb')
@@ -392,8 +374,7 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://www.tripadvisor.ru/ShowUserReviews-g815340-d3952646-r190813567-Cafe_Zarina-Karakol_Issyk_Kul_Province.html")
             )
             kb.add(
-                types.InlineKeyboardButton(text="Меню", url="https://media-cdn.tripadvisor.com/media/photo-s/10/16/df/c6/cafe-zarina.jpg"),
-                types.InlineKeyboardButton(text="Контакты: +996777777777", callback_data="contacty")
+                types.InlineKeyboardButton(text="Меню", url="https://media-cdn.tripadvisor.com/media/photo-s/10/16/df/c6/cafe-zarina.jpg")
             )
             
             photo = open('static/zarinKafe.jpg', 'rb')
@@ -411,8 +392,7 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://www.tripadvisor.ru/Restaurant_Review-g815340-d13313936-Reviews-Altyn_Kumara-Karakol_Issyk_Kul_Province.html")
             )
             aa.add(
-                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17903538839038951/"),
-                types.InlineKeyboardButton(text="Контакты: +996777777777", callback_data="cont")
+                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17903538839038951/")
             )
 
             bot.send_message(call.message.chat.id, "<b>2)</b> кафе Алтын Кумара",parse_mode='html', reply_markup=aa)
@@ -424,8 +404,7 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://www.tripadvisor.ru/Restaurant_Review-g815340-d6481971-Reviews-Ethnic_Cafe_Dastorkon-Karakol_Issyk_Kul_Province.html")
             )
             bb.add(
-                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17882963158335616/"),
-                types.InlineKeyboardButton(text="Контакты: +996777777777", callback_data="coпаntacty")
+                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17882963158335616/")
             )
             
             photo = open('static/dastarkonKafe.jpg', 'rb')
@@ -452,11 +431,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://g.page/sierra-coffee-karakol?share"),
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://sierra.madanur.com/")
             )
-            dd.add(
-                types.InlineKeyboardButton(text="Меню", url="https://sierra.madanur.com/shop-2/"),
-                types.InlineKeyboardButton(text="Контакты: +996777677777", callback_data="contacty")
-            )
-            
             photo = open('static/sierraCoffee.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
 
@@ -471,10 +445,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://goo.gl/maps/QzDeWcYmWSyBegsK7"),
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://www.tripadvisor.ru/Restaurant_Review-g815340-d12941444-Reviews-Lighthouse_Coffee_Tea-Karakol_Issyk_Kul_Province.html")
             )
-            ee.add(
-                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17917457425550379/"),
-                types.InlineKeyboardButton(text="Контакты: +996587777777", callback_data="cont")
-            )
 
             bot.send_message(call.message.chat.id, "<b>2)</b> Кофейня Karakol Lighthouse",parse_mode='html', reply_markup=ee)
 
@@ -484,11 +454,6 @@ def callback_inline(call):
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://g.page/meetingpoint-karakol?share"),
                 types.InlineKeyboardButton(text="Ссылка на сайт", url="https://duetkarakol.wordpress.com/meeting-point/")
             )
-            ff.add(
-                types.InlineKeyboardButton(text="Меню", url="https://www.instagram.com/stories/highlights/17901924169981459/"),
-                types.InlineKeyboardButton(text="Контакты: +996777777777", callback_data="coпаntacty")
-            )
-            
             photo = open('static/meetingpointCoffee.jpg', 'rb')
             bot.send_photo(call.message.chat.id, photo)
 
@@ -509,8 +474,7 @@ def callback_inline(call):
             #1
             hh = types.InlineKeyboardMarkup()
             hh.add(
-                types.InlineKeyboardButton(text="Ссылка на карту", url="https://go.2gis.com/qkr9f"),
-                types.InlineKeyboardButton(text="Контакты: +996776677777", callback_data="contacty")
+                types.InlineKeyboardButton(text="Ссылка на карту", url="https://go.2gis.com/qkr9f")
             )
             
             photo = open('static/ashlianySaidyfuKafe.jpg', 'rb')
@@ -524,8 +488,7 @@ def callback_inline(call):
             bot.send_photo(call.message.chat.id, photo)
 
             ii.add(
-                types.InlineKeyboardButton(text="Ссылка на карту", url="https://go.2gis.com/qkr9f"),
-                types.InlineKeyboardButton(text="Контакты: +996774677777", callback_data="contacty")
+                types.InlineKeyboardButton(text="Ссылка на карту", url="https://go.2gis.com/qkr9f")
             )
 
             bot.send_message(call.message.chat.id, "<b>2)</b>Ашлянфу",parse_mode='html', reply_markup=ii)
