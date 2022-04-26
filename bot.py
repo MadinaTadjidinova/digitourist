@@ -503,6 +503,8 @@ def callback_inline(call):
 
             bot.send_message(call.message.chat.id, "Еще больше Ашлянфу по ссылке👇",parse_mode='html', reply_markup=jj) 
 
-        # if call.message.data == "menu":
-        # bot.send_message(call.message.message.id, '''\n\n✅ Вы в главном меню\n\n''', parse_mode='HTML', reply_markup=keyboard())    
+@bot.message_handler(content_types=['text'])
+def lalala(message):
+    bot.send_message(message.chat.id, "Непонятное вырожение")   
+    
 bot.polling(none_stop=True)
