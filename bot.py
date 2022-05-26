@@ -257,7 +257,7 @@ def callback_inline(call):
 
 # Под программа Отели    
         if call.data == "hotel1":
-            #1
+     #1
             kk = types.InlineKeyboardMarkup()
             kk.add(
                 types.InlineKeyboardButton(text="Ссылка на карту", url="https://goo.gl/maps/REUP3jyqLVLpy22K8"),
