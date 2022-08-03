@@ -9,9 +9,14 @@ bot = telebot.TeleBot(config.TOKEN)
 db_connection = psycopg2.connect(DB_URI, sslmode="require")
 db_object = db_connection.cursor()
 
+
+def update_messages_count(user_id):
+    db_object.execute(f"UPDATE users SET messages = messages + 1 WHERE id = {user_id}")
+    db_connection.commit()
+
 @bot.message_handler(commands=["start"])
 def repeat_all_messages(message):
-    id = message.from.user.id
+    user_id = message.from_user.id
     keyboard = types.InlineKeyboardMarkup()
 
     button1 = types.InlineKeyboardButton(text="Туры", callback_data="button1")
@@ -25,12 +30,14 @@ def repeat_all_messages(message):
 
     bot.send_message(message.chat.id, text = "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот - Путеводитель. Выбери, то что тебя  интересует".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup = keyboard )
 
-    db_object.execute(f"SELECT id FROM users WHERE id = {id}")
-    result = db_object.fetchhone()
+    db_object.execute(f"SELECT id FROM users WHERE id = {user_id}")
+    result = db_object.fetchone()
 
     if not result:
-        db_object.execute("INSERT INTO users(id, username, messages) VALUES (%5, %5, %5)", (id, username, 0))
+        db_object.execute("INSERT INTO users(id, username, messages) VALUES (%s, %s, %s)", (user_id, username, 0))
         db_connection.commit()
+
+    update_messages_count(user_id)
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
