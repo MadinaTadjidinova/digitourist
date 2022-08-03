@@ -2,11 +2,16 @@ from email import message
 import telebot
 from telebot import types
 import config
+import psycopg2
 
 bot = telebot.TeleBot(config.TOKEN)
 
+db_connection = psycopg2.connect(DB_URI, sslmode="require")
+db_object = db_connection.cursor()
+
 @bot.message_handler(commands=["start"])
 def repeat_all_messages(message):
+    id = message.from.user.id
     keyboard = types.InlineKeyboardMarkup()
 
     button1 = types.InlineKeyboardButton(text="Туры", callback_data="button1")
@@ -19,6 +24,13 @@ def repeat_all_messages(message):
     keyboard.add(button4)
 
     bot.send_message(message.chat.id, text = "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот - Путеводитель. Выбери, то что тебя  интересует".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup = keyboard )
+
+    db_object.execute(f"SELECT id FROM users WHERE id = {id}")
+    result = db_object.fetchhone()
+
+    if not result:
+        db_object.execute("INSERT INTO users(id, username, messages) VALUES (%5, %5, %5)", (id, username, 0))
+        db_connection.commit()
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
