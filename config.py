@@ -1,2 +1,1 @@
 TOKEN = "5321801784:AAGR7bFuwLJ7nj1j1Az-IpZWDm0fELK2xAY"
-DB_URI = "postgres://mtfrkruplmqypx:9c464f7200583a55449d0115b62a58df1a394727575e4aa03817c0d5259d04f7@ec2-3-213-228-206.compute-1.amazonaws.com:5432/df5ooj1rou0h8k"
