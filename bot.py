@@ -9,22 +9,27 @@ bot = telebot.TeleBot(config.TOKEN)
 @bot.message_handler(commands=["start"])
 def repeat_all_messages(message):
 
-    #
+     #
     connect = sqlite3.connect('users.db')
     cursor = connect.cursor()
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS login_id(
-        id INTEGER
-    )""")
+            id INTEGER
+        )""")
 
     connect.commit()
 
     #
     user_id = [message.chat.id]
-    cursor.execute("INSERT INTO login_id VALUES(?); " user_id)
+    cursor.execute("INSERT INTO login_id VALUES(?);", user_id)
     connect.commit()
 
-    
+
+@bot.message_handler(commands=['delate'])
+def delete(message):
+    pass
+
+
     keyboard = types.InlineKeyboardMarkup()
 
     button1 = types.InlineKeyboardButton(text="Туры", callback_data="button1")
